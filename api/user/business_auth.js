@@ -45,7 +45,7 @@ router.post('/register', [
             password,
             role
         });
-        user.role = 2;
+        user.role = 1;
         // Encrypt password
         const salt = await bcrypt.genSalt(10);
         // Hash password

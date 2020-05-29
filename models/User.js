@@ -5,8 +5,10 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
     username: {type: String, required: true},
     email: {type: String, required: true},
+    phone: {type: String},
     password: {type: String, required: true},
     role: {type: Number, default: 0, required: true},
+    isPublic: {type: Boolean, default: true},
     favouriteItems: [
         { favourite: {
             type: mongoose.Schema.Types.ObjectId,
@@ -37,6 +39,18 @@ const UserSchema = new Schema({
             ref: "item"
         }}
     ],
-    
+    itemsForRent: [
+        { item: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "item"
+        }}
+    ],
+    itemsRentedOut: [
+        { item: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "item"
+        }}
+    ]
 })
+
 module.exports = User = mongoose.model('user', UserSchema);
