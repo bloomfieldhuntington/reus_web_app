@@ -17,9 +17,12 @@ const ItemSchema = new Schema({
     locations: {type: Array},
     productImages: {type: Array},
     isNews: {type: Boolean, default: false},
-    isTrending: {type: Boolean, default: false}
-
-    
+    isTrending: {type: Boolean, default: false},
+    isAvailable: {type: Boolean, default: true},
+    meta: {
+        productViews: {type: Number, default: 0},
+        timesRented: {type: Number, default: 0}
+    }
 })
 
 module.exports = Item = mongoose.model('item', ItemSchema);
