@@ -10,7 +10,7 @@ const UserSchema = new Schema({
     role: {type: Number, default: 0, required: true},
     isPublic: {type: Boolean, default: true},
     favouriteItems: [
-        { favourite: {
+        { item: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "item"
         }}
@@ -21,7 +21,7 @@ const UserSchema = new Schema({
             ref: "item"
         }}
     ],
-    follows: [
+    followers: [
         { user: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "user"

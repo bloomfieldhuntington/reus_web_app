@@ -3,7 +3,7 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const { check, validationResult } = require('express-validator');
-const admin_middlware = require('../../middleware/admin_middleware');
+const business_middleware = require('../../middleware/business_middleware');
 const config = require('../../config/keys');
 // MARK:- Initialize Router
 const router = express.Router();
@@ -12,7 +12,7 @@ const User = require('../../models/User');
 
 // MARK:- ROUTES
 
-// ROUTE: api/user/auth/register
+// ROUTE: api/business/auth/register
 // DESCRIPTION: CREATE USER
 // ACCESS: PUBLIC
 // TYPE: POST
@@ -60,7 +60,7 @@ router.post('/register', [
             }
         }
         // Sign payload
-        jwt.sign(payload, config.ADMIN_SECRET, {expiresIn: 36000}, (err, token) => {
+        jwt.sign(payload, config.BUSINESS_SECRET, {expiresIn: 36000}, (err, token) => {
             if (err) throw err;
             res.json({ token })
         })
@@ -70,7 +70,7 @@ router.post('/register', [
     }
 })
 
-// ROUTE: api/user/auth/login
+// ROUTE: api/business/auth/login
 // DESCRIPTION: LOGIN USER & GET TOKEN
 // ACCESS: PUBLIC
 // TYPE: POST
@@ -103,7 +103,7 @@ router.post('/login', [
             }
         }
         // Sign payload
-        jwt.sign(payload, config.ADMIN_SECRET, {expiresIn: 36000}, (err, token) => {
+        jwt.sign(payload, config.BUSINESS_SECRET, {expiresIn: 36000}, (err, token) => {
             if (err) throw err;
             res.json({token})
         })
@@ -114,11 +114,11 @@ router.post('/login', [
 
 })
 
-// ROUTE: api/user/auth/get/user
+// ROUTE: api/business/auth/get/user
 // DESCRIPTION: GET USER OBJECT (without password)
 // ACCESS: PRIVATE
 // TYPE: GET
-router.get('/get/user', admin_middlware, async (req, res) => {
+router.get('/get/user', business_middleware, async (req, res) => {
     try {
         const user = await User.findById(req.user.id).select('-password');
         res.json(user);

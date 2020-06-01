@@ -12,7 +12,7 @@ const User = require('../../models/User');
 
 // MARK:- ROUTES
 
-// ROUTE: api/user/auth/register
+// ROUTE: api/admin/auth/register
 // DESCRIPTION: CREATE USER
 // ACCESS: PUBLIC
 // TYPE: POST
@@ -70,7 +70,7 @@ router.post('/register', [
     }
 })
 
-// ROUTE: api/user/auth/login
+// ROUTE: api/admin/auth/login
 // DESCRIPTION: LOGIN USER & GET TOKEN
 // ACCESS: PUBLIC
 // TYPE: POST
@@ -114,7 +114,7 @@ router.post('/login', [
 
 })
 
-// ROUTE: api/user/auth/get/user
+// ROUTE: api/admin/auth/get/user
 // DESCRIPTION: GET USER OBJECT (without password)
 // ACCESS: PRIVATE
 // TYPE: GET

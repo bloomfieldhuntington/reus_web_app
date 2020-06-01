@@ -18,11 +18,13 @@ app.use(express.json({ extended: false }));
 
 // User
 app.use('/api/user/auth', require('./api/user/user_auth'));
-// app.use('/api/user/action', require('./api/user/'));
+app.use('/api/user/actions', require('./api/actions/user_actions'));
 // Business
 app.use('/api/business/auth', require('./api/user/business_auth'));
+app.use('/api/business/actions', require('./api/actions/business_actions'));
 // Admin
-app.use('/api/admin/auth', require('./api/user/admin_auth'));
+// app.use('/api/admin/auth', require('./api/user/admin_auth'));
+// app.use('/api/admin/actions', require('./api/actions/admin_actions'));
 // Item
 app.use('/api/item', require('./api/item/item'));
 

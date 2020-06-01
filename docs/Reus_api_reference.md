@@ -6,43 +6,99 @@
 
 ## ROUTES for User
 
-#### Action: Get favouriteItems, User
-POST /api//
+#### Action: Create User Object, User OK
+POST /api/user/auth/register
 
-#### Action: reservedItems, User
-POST /api/xxxx/xxxx
+#### Action: Login User Object, User OK
+POST /api/user/auth/login
 
-#### Action: Get follows, User
-POST /api/xxxx/xxxx
+#### Action: Get User Object, User OK
+GET /api/user/auth/get/user
 
-#### Action: Get following, User
-POST /api/xxxx/xxxx
+#### Action: Get favouriteItems, User OK
+GET /api/user/actions/get/favourites
 
-#### Action: Set isPublic, User
-POST /api/xxxx/xxxx
+#### Action: Add Item to favouriteItems, User OK
+POST /api/user/actions/add/favourites/:item_id
+
+#### Action: Remove Item from favouriteItems, User OK
+POST /api/user/actions/remove/favourites/:item_id
+
+#### Action: Get reservedItems, User OK
+GET /api/user/actions/get/reserved
+
+#### Action: Add Item to reservedItems, User OK FIX
+POST /api/user/actions/add/reseved/:item_id
+
+#### Action: Remove Item to reservedItems, User OK FIX
+POST /api/user/actions/remove/reserved:/:item_id
+
+#### Action: Get followers, User OK
+GET /api/user/actions/get/followers
+
+#### Action: Get following, User OK
+GET /api/user/actions/get/following
+
+#### Action: Follow User with user_id, User OK
+POST /api/user/actions/follow/:user_id
+
+#### Action: Unfollow User with user_id, User OK
+POST /api/user/actions/unfollow/:user_id
+
+#### Action: Set isPublic, User OK
+POST /api/user/actions/set/public_profile
+
+## ROUTES for Business
+
+#### Action: Create User Object, Business OK
+POST /api/business/auth/register
+
+#### Action: Login User Object, Business OK
+POST /api/business/auth/login
+
+#### Action: Get User Object, Business OK
+GET /api/business/auth/get/user
+
+#### Action: Get itemsForRent, Business OK
+GET /api/business/actions/get/items_for_rent
+
+#### Action: Add itemsForRent, Business
+GET /api/business/actions/get/items_for_rent
+
+#### Action: Get itemsRentedOut, Business OK
+GET /api/business/actions/get/rented_out
+
+## ROUTES for Admin
+
+#### Action: Create User Object, Admin
+POST /api/admin/auth/register
+
+#### Action: Login User Object, Admin
+POST /api/admin/auth/login
+
+#### Action: Get User Object, Admin
+GET /api/admin/auth/get/user
+
 
 ## ROUTES for ITEM
 
-#### Action: Create item, Business
+#### Action: Create item, Business OK
 POST /api/item/create
 
 #### Action: Delete Item, Business
 POST /api/item/remove/:item_id
 
-#### Action: Get All My Items, Business
-POST /api/item/get/all
+#### Action: Get All My Items, Business OK
+GET /api/item/get/all
 
-#### Action: Get One Specific Item, Business
-POST /api/item/get/:item_id
+#### Action: Get One Specific Item, Business OK
+GET /api/item/get/:item_id
 
-#### Action: Get User who rented One specific Item, Business
-POST /api/item/get/rented_by
+#### Action: Get User who rented One specific Item, Business TODO
+POST /api/item/get/rented_by/:item_id
 
-#### Action: Get itemsForRent, Business
-POST /api/item/get/items_for_rent
-
-#### Action: Get itemsRentedOut, Business
-POST /api/item/get/rented
+#### Action: Set the User who rented One specific Item, Business TODO
+POST /api/item/set/rented_by/:user_id
 
 #### Action: Get timesRented Business
 POST /api/item/get/rented_count
