@@ -139,7 +139,6 @@ router.post('/add/reserved/:item_id', user_middlware, async (req, res) => {
             const item = await Item.findOne({ _id: req.params.item_id });
             if (!item) return res.status(404).json({msg: 'No item found'})
 
-            // check if already enrolled & for max 5 solvers
             const index = await user.reservedItems.findIndex(item => item.item == req.params.item_id);
             if (index != -1) {
                 return res.status(400).json({msg: 'Already Added'});

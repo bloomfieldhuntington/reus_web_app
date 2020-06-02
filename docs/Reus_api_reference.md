@@ -94,31 +94,31 @@ GET /api/item/get/all
 #### Action: Get One Specific Item, Business OK
 GET /api/item/get/:item_id
 
-#### Action: Get User who rented One specific Item, Business TODO
+#### Action: Get User who rented One specific Item, Business OK
 POST /api/item/get/rented_by/:item_id
 
-#### Action: Set the User who rented One specific Item, Business TODO
+#### Action: Set the User who rented One specific Item, Business OK
 POST /api/item/set/rented_by/:user_id
 
-#### Action: Get timesRented Business
+#### Action: Get timesRented Business OK
 POST /api/item/get/rented_count
 
-#### Action: Add locations to Item, business
+#### Action: Add locations to Item, business TODO
 POST /api/item/add/location/:item_id
 
-#### Action: Remove locations, business
+#### Action: Remove locations, business TODO
 POST /api/item/remove/location/:item_id
 
-#### Action: Get all items, User
+#### Action: Get all items, User TODO
 POST /api/item/user/all
 
-#### Action: Get One specific Item, User
+#### Action: Get One specific Item, User TODO
 POST /api/item/user/get/:item_id
 
-#### Action: Set productViews, User
+#### Action: Set productViews, User TODO
 POST /api/xxxx/xxxx
 
-#### Action: Set timesRented, User
+#### Action: Set timesRented, User TODO
 POST /api/xxxx/xxxx
 
 

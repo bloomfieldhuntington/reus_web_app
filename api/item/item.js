@@ -158,4 +158,56 @@ router.post('/get/rented_by/:item_id', [business_middlware, [
     }
 });
 
+// ROUTE: api/item/get/times_rented/:item_id
+// DESCRIPTION: GET timesRented
+// ACCESS: PRIVATE
+// TYPE: POST
+router.post('/get/times_rented/:item_id', business_middlware, async (req, res) => {
+    try {
+        
+        // Get item
+        const item = Item.findOne({ _id: req.params.item_id });
+        if (!item) {
+            return res.status(404).json({ msg: 'No Item Found'});
+        } else {
+            res.json(item.meta.timesRented);
+        }
+        
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).json({msg: 'Server Error'});
+    }
+});
+
+// ROUTE: api/item/add/location/:item_id
+// DESCRIPTION: ADD LOCATION TO ITEM
+// ACCESS: PRIVATE
+// TYPE: POST
+router.post('/add/location/:item_id', [business_middlware, [
+    check('locations', 'Please add a location').not().isEmpty()
+]], async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) return res.status(400).json({ error: errors.array() });
+    const { locations } = req.body;
+    const locationFields = {};
+    if (locations) locationFields.locations = locations;
+
+    try {
+
+        // CREATE A LOCATION OBJET HERE, STORE ITS ID IN THE LOCAITON ARRAY.
+
+        const item = await Item.findOne({ _id: req.params.item_id });
+        if (!item) {
+            return res.status(404).json({msg: 'No item found'})
+        } else {
+            item.locations.push(locationFields);
+            item.save();
+        }
+        
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).json({msg: 'Server Error'});
+    }
+});
+
 module.exports = router;
