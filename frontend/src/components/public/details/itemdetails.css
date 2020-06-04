@@ -1,0 +1,104 @@
+/* SECTION DETAILS */
+.section-details {
+    margin: 50px 0;
+    background-color: transparent;
+}
+.section-details-content-container {
+    display: flex;
+    flex-direction: row;
+    background-color: transparent;
+}
+.section-details-images-container {
+    background-color: transparent;
+}
+.section-details-main-image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    width: 350px;
+    overflow: hidden;
+}
+.section-details-main-image {
+    display: flex;
+    align-self: center;
+    height: 100%;
+}
+.section-details-image-selection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px 0px;
+}
+.section-details-image-small-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    width: 80px;
+    overflow: hidden;
+}
+.section-details-image-small {
+    display: flex;
+    align-self: center;
+    height: 100%;
+}
+
+.section-details-description-container {
+    background-color: transparent;
+}
+.details-description-contentbox {
+    background-color: transparent;
+    margin-left: 20px;
+}
+.details-title-container {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+}
+.details-title {
+    font-size: 16px;
+    font-weight: 700;
+}
+.details-title-icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px;
+}
+.details-title-icon {
+    display: flex;
+    height: 25px;
+}
+
+.details-text {
+    font-size: 12px;
+    text-transform: uppercase;
+}
+.details-price {
+    font-size: 14px;
+    font-weight: 700;
+}
+.details-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: 100px;
+    background-color: #000;
+    color: #fff;
+    font-size: 14px;
+    margin: 20px 0px;
+}
+.details-text-b {
+    font-size: 16px;
+}
+
+.details-locations-container {
+    background-color: #efefef;
+    padding: 10px;
+    border-radius: 5px;
+}
+.location-item {
+    font-size: 14px;
+}

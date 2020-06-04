@@ -131,10 +131,10 @@ router.get('/get/rented_by/:item_id', business_middlware, async (req, res) => {
 });
 
 // ROUTE: api/item/set/rented_by/
-// DESCRIPTION: GET ONE ITEM BY ID
+// DESCRIPTION: SET RENTEE
 // ACCESS: PRIVATE
 // TYPE: POST
-router.post('/get/rented_by/:item_id', [business_middlware, [
+router.post('/set/rented_by/:item_id', [business_middlware, [
     check('renter_id', 'Please enter the _id of the rentee').not().isEmpty()
 ]], async (req, res) => {
     const errors = validationResult(req);

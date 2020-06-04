@@ -1,0 +1,41 @@
+.section-card {
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    height: auto;
+    background-color: transparent;
+    margin: 20px 0px;
+}
+.section-card-image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.section-card-image {
+    /* display: flex; */
+    align-self: center;
+    height: 180px;
+}
+.section-card-title {
+    margin-top: 5px;
+    font-size: 12px;
+    font-weight: 700;
+}
+.section-card-title-alt {
+    margin-top: 5px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.section-card-category {
+    margin-top: 3px;
+    font-size: 12px;
+    font-weight: 400;
+}
+.section-card-price {
+    margin-top: 3px;
+    font-size: 12px;
+    font-weight: 700;
+    color: gray;
+}

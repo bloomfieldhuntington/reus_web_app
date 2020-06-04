@@ -69,7 +69,7 @@ router.post('/add/favourites/:item_id', user_middlware, async (req, res) => {
 });
 
 // ROUTE: api/user/actions/remove/favourites/:item_id
-// DESCRIPTION: Add Item to favouriteItems
+// DESCRIPTION: remove Item to favouriteItems
 // ACCESS: PRIVATE
 // TYPE: POST
 router.post('/remove/favourites/:item_id', user_middlware, async (req, res) => {

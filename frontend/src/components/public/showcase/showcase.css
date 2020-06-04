@@ -1,0 +1,21 @@
+/* SECTION SHOWCASE */
+.section-showcase {
+    background-color: lightsalmon;
+    width: 100%;
+    overflow: hidden;
+}
+.showcase-image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 350px;
+}
+.showcase-image {
+    display: flex;
+    align-self: center;
+    width: 100%;
+}
+.test-txt {
+    position: absolute;
+    background-color: white;
+}

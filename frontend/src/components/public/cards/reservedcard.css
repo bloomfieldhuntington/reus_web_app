@@ -1,0 +1,29 @@
+.reserved-card {
+    display: flex;
+    flex-direction: row;
+    background-color: #efefef;
+}
+.reserved-card-image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    overflow: hidden;
+}
+.reserved-card-image {
+    align-self: center;
+    height: 180px;
+}
+.reserved-card-details-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 20px;
+}
+.reserved-card-title {
+    font-size: 16px;
+    font-weight: 700;
+}
+.reserved-card-subtitle {
+    font-size: 14px;
+}
