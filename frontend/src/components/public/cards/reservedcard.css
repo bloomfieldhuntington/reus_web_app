@@ -13,6 +13,7 @@
 .reserved-card-image {
     align-self: center;
     height: 180px;
+    background-color: #efefef;
 }
 .reserved-card-details-container {
     display: flex;

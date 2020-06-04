@@ -1,6 +1,12 @@
 import React, { PropTypes, Fragment } from 'react';
-
+// css
 import './sidebar.css';
+// Images
+import menu from '../../../images/Burgermenu.png';
+import reservation from '../../../images/reservation.png';
+import edit from '../../../images/edit.png';
+import settings from '../../../images/settings.png';
+import Help from '../../../images/Help.png';
 
 const Sidebar = props => {
     return (
@@ -13,19 +19,31 @@ const Sidebar = props => {
 
             <div className="sidebar-column-item-container">
                 <div className="sidebar-column-item">
-                    <img src="" alt="icon" className="sidebar-column-icon"></img>
+                    <img src={menu} alt="icon" className="sidebar-column-icon"></img>
                 </div>
             </div>
 
             <div className="sidebar-column-item-container">
                 <div className="sidebar-column-item">
-                    <img src="" alt="icon" className="sidebar-column-icon"></img>
+                    <img src={reservation} alt="icon" className="sidebar-column-icon"></img>
                 </div>
             </div>
 
             <div className="sidebar-column-item-container">
                 <div className="sidebar-column-item">
-                    <img src="" alt="icon" className="sidebar-column-icon"></img>
+                    <img src={edit} alt="icon" className="sidebar-column-icon"></img>
+                </div>
+            </div>
+
+            <div className="sidebar-column-item-container">
+                <div className="sidebar-column-item">
+                    <img src={settings} alt="icon" className="sidebar-column-icon"></img>
+                </div>
+            </div>
+
+            <div className="sidebar-column-item-container">
+                <div className="sidebar-column-item">
+                    <img src={Help} alt="icon" className="sidebar-column-icon"></img>
                 </div>
             </div>
 

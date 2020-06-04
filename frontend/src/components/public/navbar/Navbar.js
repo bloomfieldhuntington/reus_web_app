@@ -5,6 +5,9 @@ import PropTypes from 'prop-types';
 // css
 import './navbar.css';
 // images
+import reus_logo from '../../../images/reus_logo.png';
+import search from '../../../images/Search.png';
+import Shoppingcart from '../../../images/Shoppingcart.png'
 
 const Navbar = props => {
     return (
@@ -15,16 +18,16 @@ const Navbar = props => {
         <div className="navbar-container">
 
             <div className="navbar-logo-container">
-                <img src="{reus_logo}" alt="REUS" className="navbar-logo"></img>
+                <img src={reus_logo} alt="REUS" className="navbar-logo"></img>
             </div>
 
             <div className="navbar-searchfield-container">
-                <img src="{location}" alt="icon" className="navbar-icon"></img>
+                <img src={search} alt="icon" className="navbar-icon"></img>
                 <input type="text" placeholder="Søk etter plagg eller brukere" className="navbar-searchfield-input"></input>
             </div>
 
             <div className="navbar-button">Registrer</div>
-            <img src="{location}" alt="icon" className="navbar-icon"></img>
+            <img src={Shoppingcart} alt="icon" className="navbar-icon"></img>
 
         </div>
 
