@@ -44,4 +44,6 @@
 .navbar-button {
     cursor: pointer;
     font-size: 16px;
+    text-decoration: none;
+    color: #000;
 }

@@ -1,7 +1,7 @@
-import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
+import React, {Fragment, useEffect} from 'react'
+import { Redirect, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 // css
 import './navbar.css';
 // images
@@ -17,16 +17,16 @@ const Navbar = props => {
 
         <div className="navbar-container">
 
-            <div className="navbar-logo-container">
+            <Link to="/" className="navbar-logo-container">
                 <img src={reus_logo} alt="REUS" className="navbar-logo"></img>
-            </div>
+            </Link>
 
             <div className="navbar-searchfield-container">
                 <img src={search} alt="icon" className="navbar-icon"></img>
                 <input type="text" placeholder="Søk etter plagg eller brukere" className="navbar-searchfield-input"></input>
             </div>
 
-            <div className="navbar-button">Registrer</div>
+            <Link to="/register" className="navbar-button">Registrer</Link>
             <img src={Shoppingcart} alt="icon" className="navbar-icon"></img>
 
         </div>

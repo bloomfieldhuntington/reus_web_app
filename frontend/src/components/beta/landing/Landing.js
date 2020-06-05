@@ -13,17 +13,16 @@ import photo1 from './img/photo1.jfif';
 import './components.css';
 
 // components
-import Navbar from '../navbar/Navbar';
-import Sidebar from '../sidebar/Sidebar'
-import Footer from '../footer/Footer';
-import Profile from '../../profile/Profile';
-import Showcase from '../showcase/Showcase';
+import Navbar from '../../public/navbar/Navbar';
+import Sidebar from '../../public/sidebar/Sidebar'
+import Footer from '../../public/footer/Footer';
+import Showcase from '../../public/showcase/Showcase';
 
-import SectionCard from '../cards/SectionCard';
-import StandardCard from '../cards/StandardCard';
-import ReservedCard from '../cards/SectionCard';
-import ItemDetails from '../details/ItemDetails';
-import Form from '../form/Form';
+import SectionCard from '../../public/cards/SectionCard';
+import StandardCard from '../../public/cards/StandardCard';
+import ReservedCard from '../../public/cards/SectionCard';
+import ItemDetails from '../../public/details/ItemDetails';
+import Form from '../../public/form/Form';
 
 
 const Landing = props => {

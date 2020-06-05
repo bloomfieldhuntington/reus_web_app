@@ -13,20 +13,17 @@ import photo1 from './img/photo1.jfif';
 import './components.css';
 
 // components
-import Navbar from '../navbar/Navbar';
-import Sidebar from '../sidebar/Sidebar'
-import Footer from '../footer/Footer';
-import Profile from '../../profile/Profile';
-import Showcase from '../showcase/Showcase';
-
-import SectionCard from '../cards/SectionCard';
-import StandardCard from '../cards/StandardCard';
-import ReservedCard from '../cards/SectionCard';
-import ItemDetails from '../details/ItemDetails';
-import Form from '../form/Form';
+import Navbar from '../../public/navbar/Navbar';
+import Sidebar from '../../public/sidebar/Sidebar'
+import Footer from '../../public/footer/Footer';
 
 
-const Landing = props => {
+import SectionCard from '../../public/cards/SectionCard';
+import StandardCard from '../../public/cards/StandardCard';
+import Submenu from '../../public/submenu/Submenu';
+
+
+const Catagory = props => {
     return (
         <Fragment>
 
@@ -38,21 +35,9 @@ const Landing = props => {
 
 <main className="main">
 
-    {/* SHOWCASE */}
-    <Showcase />
-
     <div className="contentbox">
 
-        <div className="section-navigation-container">
-            <div className="section-navigation-title">Shop</div>
-            <div className="section-navigation-links-container">
-                <div className="section-navigation-link">Dame</div>
-                <div className="vertical-divider">|</div>
-                <div className="section-navigation-link">Herre</div>
-                <div className="vertical-divider">|</div>
-                <div className="section-navigation-link">Barn</div>
-            </div>
-        </div>
+        <Submenu />
 
         <div className="section-banner">
             <div className="section-banner-image-container">
@@ -105,8 +90,8 @@ const Landing = props => {
     );
 };
 
-Landing.propTypes = {
+Catagory.propTypes = {
     
 };
 
-export default Landing;
+export default Catagory;

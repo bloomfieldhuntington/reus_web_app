@@ -2,14 +2,20 @@
 import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import set_auth_token from './utils/set_auth_token';
-// import PrivateRoute from './components/utils_routing/PrivateRoute';
+import PrivateRoute from './components/utils/PrivateRoute';
 // redux
 import { Provider } from 'react-redux';
 import store from './store';
 import { load_user_business } from './actions/auth_business';
 
 // MARK:- COMPONENTS
-import Landing from './components/public/landing/Landing';
+// public
+import Landing from './components/beta/landing/Landing';
+import Category from './components/beta/category/Catagory';
+// business
+import BusinessRegister from './components/beta/register/business/auth/BusinessRegister';
+import BusinessProfile from './components/beta/profiles/business/BusinessProfile';
+
 
 // Utils
 const jwtDecode = require('jwt-decode');
@@ -37,6 +43,10 @@ const App = () => {
         <Switch>
           {/* PUBLIC ROUTES */}
           <Route exact path="/" component={Landing} />
+          <Route exact path="/business/register" component={BusinessRegister} />
+          <Route exact path="/category" component={Category} />
+          {/* PRIVATE ROUTES */}
+          <PrivateRoute exact path="/business/profile" component={BusinessProfile} />
         </Switch>
       </Router>
     </Provider>

@@ -24,9 +24,10 @@ import StandardCard from '../cards/StandardCard';
 import ReservedCard from '../cards/SectionCard';
 import ItemDetails from '../details/ItemDetails';
 import Form from '../form/Form';
+import Submenu from '../submenu/Submenu';
 
 
-const Landing = props => {
+const Catagory = props => {
     return (
         <Fragment>
 
@@ -38,21 +39,9 @@ const Landing = props => {
 
 <main className="main">
 
-    {/* SHOWCASE */}
-    <Showcase />
-
     <div className="contentbox">
 
-        <div className="section-navigation-container">
-            <div className="section-navigation-title">Shop</div>
-            <div className="section-navigation-links-container">
-                <div className="section-navigation-link">Dame</div>
-                <div className="vertical-divider">|</div>
-                <div className="section-navigation-link">Herre</div>
-                <div className="vertical-divider">|</div>
-                <div className="section-navigation-link">Barn</div>
-            </div>
-        </div>
+        <Submenu />
 
         <div className="section-banner">
             <div className="section-banner-image-container">
@@ -105,8 +94,8 @@ const Landing = props => {
     );
 };
 
-Landing.propTypes = {
+Catagory.propTypes = {
     
 };
 
-export default Landing;
+export default Catagory;

@@ -44,7 +44,7 @@ export const register_business = ({username, email, password}) => async dispatch
         dispatch(load_user_business());
     } catch (error) {
         const errors = error.response.data.errors;
-        if (error) {
+        if (errors) {
             errors.forEach(error => dispatch(set_alert(error.msg, 'failed')));
         }
         dispatch({

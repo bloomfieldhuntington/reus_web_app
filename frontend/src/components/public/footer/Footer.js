@@ -3,6 +3,11 @@ import { Link } from 'react-router-dom';
 // css
 import './footer.css';
 // images
+import reusLogo from '../../../images/reus_logo.png';
+import facebook from '../../../images/facebook.png';
+import instagram from '../../../images/instagram.png';
+import twitter from '../../../images/twitter.png';
+
 
 const Footer = props => {
     return (
@@ -36,13 +41,13 @@ const Footer = props => {
         </div>
 
         <div className="footer-icon-container">
-            <img src="" alt="" className="footer-icon"></img>
-            <img src="" alt="" className="footer-icon"></img>
-            <img src="" alt="" className="footer-icon"></img>
+            <img src={facebook} alt="" className="footer-icon"></img>
+            <img src={instagram} alt="" className="footer-icon"></img>
+            <img src={twitter} alt="" className="footer-icon"></img>
         </div>
 
         <div className="footer-text">Smidig Project 2020. Forretningskonsept Re:us omhandler utleie av produkter, spesielt tekstiler på en børekraftig måte.</div>
-        <img src="" alt="" className="footer-logo"></img>
+        <img src={reusLogo} alt="" className="footer-logo"></img>
         <div className="footer-text">Copyright © Smidig Gruppe 2, 2020</div>
     </div>
 

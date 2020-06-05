@@ -1,6 +1,6 @@
 /* SECTION SHOWCASE */
 .section-showcase {
-    background-color: lightsalmon;
+    background-color: transparent;
     width: 100%;
     overflow: hidden;
 }
@@ -9,6 +9,7 @@
     align-items: center;
     justify-content: center;
     height: 350px;
+    background-color: #efefef;
 }
 .showcase-image {
     display: flex;

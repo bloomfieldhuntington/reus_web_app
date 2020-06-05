@@ -11,12 +11,12 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    background-color: #efefef;
 }
 .section-card-image {
     /* display: flex; */
     align-self: center;
     height: 180px;
-    background-color: #efefef;
 }
 .section-card-title {
     margin-top: 5px;
