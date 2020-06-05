@@ -8,6 +8,8 @@ import image1 from './img/image1.jpg';
 import image2 from './img/image2.png';
 import image3 from './img/image3.jpg';
 import photo1 from './img/photo1.jfif';
+import lastNedAppen from '../../../dummyImages/lastNedAppen.png';
+import AccessoriesDame from '../../../dummyImages/AccessoriesDame.png';
 
 // css
 import './components.css';
@@ -71,7 +73,7 @@ const Landing = ({isAuthenticated}) => {
 
         <div className="section-banner">
             <div className="section-banner-image-container">
-                <img src={image1} alt="" className="section-banner-image"></img>
+                <img src={AccessoriesDame} alt="" className="section-banner-image"></img>
             </div>
         </div>
 
@@ -83,6 +85,9 @@ const Landing = ({isAuthenticated}) => {
 
                 {/* STANDARD CARD */}
                 <StandardCard />
+                <StandardCard />
+                <StandardCard />
+                <StandardCard />
 
             </div>
 
@@ -90,7 +95,7 @@ const Landing = ({isAuthenticated}) => {
 
         <div className="section-banner">
             <div className="section-banner-image-container">
-                <img src={image3} alt="" className="section-banner-image"></img>
+                <img src={lastNedAppen} alt="" className="section-banner-image"></img>
             </div>
         </div>
 
@@ -100,6 +105,9 @@ const Landing = ({isAuthenticated}) => {
 
                 {/* SECTION CARDS HERE */}
 
+                <SectionCard />
+                <SectionCard />
+                <SectionCard />
                 <SectionCard />
 
 

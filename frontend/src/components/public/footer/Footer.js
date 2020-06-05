@@ -46,7 +46,7 @@ const Footer = props => {
             <img src={twitter} alt="" className="footer-icon"></img>
         </div>
 
-        <div className="footer-text">Smidig Project 2020. Forretningskonsept Re:us omhandler utleie av produkter, spesielt tekstiler på en børekraftig måte.</div>
+        <div className="footer-text">Smidig Project 2020. Forretningskonsept Re:us omhandler utleie av produkter, spesielt tekstiler på en bærekraftig måte.</div>
         <img src={reusLogo} alt="" className="footer-logo"></img>
         <div className="footer-text">Copyright © Smidig Gruppe 2, 2020</div>
     </div>

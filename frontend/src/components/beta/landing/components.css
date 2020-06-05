@@ -30,7 +30,7 @@ body {
     background-color: transparent;
 }
 /* SECTION SHOWCASE */
-.section-showcase {
+/* .section-showcase {
     background-color: lightsalmon;
     width: 100%;
     overflow: hidden;
@@ -49,7 +49,7 @@ body {
 .test-txt {
     position: absolute;
     background-color: white;
-}
+} */
 
 /* SECTION NAVIGATION */
 .section-navigation-container {
@@ -76,7 +76,7 @@ body {
 
 /* SECTION BANNER */
 .section-banner {
-    background-color: red;
+    background-color: transparent;
 }
 .section-banner-image-container {
     display: flex;

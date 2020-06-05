@@ -1,6 +1,8 @@
 import React, { PropTypes, Fragment } from 'react';
 import './showcase.css';
 
+import editorsPick1 from '../../../dummyImages/editorsPick1.png'
+
 
 
 const Showcase = props => {
@@ -10,7 +12,7 @@ const Showcase = props => {
         <section className="section-showcase">
             <div className="showcase-image-container">
                 <div className="test-txt">Editors Picks</div>
-                <img src="" alt="" className="showcase-image"></img>
+                <img src={editorsPick1} alt="" className="showcase-image"></img>
             </div>
         </section>
             
