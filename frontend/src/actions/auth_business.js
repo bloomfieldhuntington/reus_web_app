@@ -45,7 +45,7 @@ export const register_business = ({username, email, password}) => async dispatch
     } catch (error) {
         const errors = error.response.data.errors;
         if (errors) {
-            errors.forEach(error => dispatch(set_alert(error.msg, 'failed')));
+            errors.forEach(error => dispatch(set_alert(error.msg, 'red')));
         }
         dispatch({
             type: REGISTER_FAILED_BUSINESS
