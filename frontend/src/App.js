@@ -14,6 +14,7 @@ import Landing from './components/beta/landing/Landing';
 import Category from './components/beta/category/Catagory';
 // business
 import BusinessRegister from './components/beta/register/business/auth/BusinessRegister';
+import BusinessLogin from './components/beta/register/business/auth/BusinessLogin';
 import BusinessProfile from './components/beta/profiles/business/BusinessProfile';
 
 
@@ -44,6 +45,8 @@ const App = () => {
           {/* PUBLIC ROUTES */}
           <Route exact path="/" component={Landing} />
           <Route exact path="/business/register" component={BusinessRegister} />
+          <Route exact path="/business/login" component={BusinessLogin} />
+          
           <Route exact path="/category" component={Category} />
           {/* PRIVATE ROUTES */}
           <PrivateRoute exact path="/business/profile" component={BusinessProfile} />

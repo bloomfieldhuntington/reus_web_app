@@ -91,6 +91,9 @@
     color: #fff;
     font-size: 14px;
     margin: 20px 0px;
+    border-style: none;
+    text-decoration: none;
+    color: #fff;
 }
 .details-text-b {
     font-size: 16px;

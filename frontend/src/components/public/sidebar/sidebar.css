@@ -28,6 +28,14 @@
 .sidebar-column-item {
     display: flex;
 }
+.sidebar-column-item-profile {
+    display: flex;
+    background-color: lightblue;
+    border-radius: 50%;
+}
 .sidebar-column-icon {
     height: 25px;
+}
+.sidebar-column-icon-profile {
+    height: 30px;
 }

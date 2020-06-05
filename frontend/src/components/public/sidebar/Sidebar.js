@@ -7,6 +7,7 @@ import reservation from '../../../images/reservation.png';
 import edit from '../../../images/edit.png';
 import settings from '../../../images/settings.png';
 import Help from '../../../images/Help.png';
+import Profile from '../../../images/Profile.png';
 
 const Sidebar = props => {
     return (
@@ -20,6 +21,12 @@ const Sidebar = props => {
             <div className="sidebar-column-item-container">
                 <div className="sidebar-column-item">
                     <img src={menu} alt="icon" className="sidebar-column-icon"></img>
+                </div>
+            </div>
+
+            <div className="sidebar-column-item-container">
+                <div className="sidebar-column-item-profile">
+                    <img src={Profile} alt="icon" className="sidebar-column-icon-profile"></img>
                 </div>
             </div>
 

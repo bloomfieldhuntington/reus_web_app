@@ -14,28 +14,22 @@ import Navbar from '../../../../public/navbar/Navbar';
 import Sidebar from '../../../../public/sidebar/Sidebar'
 import Footer from '../../../../public/footer/Footer';
 // actions
-import { register_business } from '../../../../../actions/auth_business';
+import { login_business } from '../../../../../actions/auth_business';
 
 
-const BusinessRegister = ({register_business, isAuthenticated}) => {
+const BusinessLogin = ({login_business, isAuthenticated}) => {
 
     // Register Form
 const [formData, setFormData] = useState({
-    username: '',
     email: '',
-    password: '',
-    password2: ''
+    password: ''
 })
-const { username, email, password, password2 } = formData;
+const { email, password } = formData;
 
 const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value});
 const onSubmit = async (e) => {
     e.preventDefault();
-    if (password !== password2) {
-        console.log('Password 1 must mach password 2');
-    } else {
-        register_business({username, email, password});
-    }
+        login_business({email, password});
 }
 
 // Redirects to dash if auth
@@ -56,21 +50,9 @@ if (isAuthenticated === true) {
             <div className="section-content-container-col">
 
                 <form onSubmit={onSubmit} className="section-form">
+
                 <div className="section-title-alt">Business Registrer</div>
-                    <div className="form-input-container">
-                        <img src={profile} alt="" className="form-input-icon"></img>
 
-                        <input 
-                        type="text" 
-                        placeholder="Company Name" 
-                        name="username"
-                        value={username}
-                        onChange={e => onChange(e)}
-                        required
-                        className="form-input"
-                        ></input>
-
-                    </div>
                     <div className="form-input-container">
                         <img src={Register} alt="" className="form-input-icon"></img>
                         
@@ -99,25 +81,11 @@ if (isAuthenticated === true) {
                         ></input>
 
                     </div>
-                    <div className="form-input-container">
-                        <img src={key} alt="" className="form-input-icon"></img>
-                        
-                        <input 
-                        type="text" 
-                        placeholder="Repeat Password" 
-                        name="password2"
-                        value={password2}
-                        onChange={e => onChange(e)}
-                        required
-                        className="form-input"
-                        ></input>
 
-                    </div>
-
-                    <button type="submit" className="details-button" value="">Register</button>
+                    <button type="submit" className="details-button" value="">Login</button>
 
                 </form>
-                <Link to="/business/login" className="details-button" >Login</Link>
+                <Link to="/business/register" className="details-button" >Register</Link>
             </div>
 
         </section>
@@ -130,8 +98,8 @@ if (isAuthenticated === true) {
     );
 };
 
-BusinessRegister.propTypes = {
-    register_business: PropTypes.func.isRequired,
+BusinessLogin.propTypes = {
+    login_business: PropTypes.func.isRequired,
     isAuthenticated: PropTypes.bool
 };
 
@@ -139,4 +107,4 @@ const mapStateToProps = (state) => ({
     isAuthenticated: state.auth.isAuthenticated
 })
 
-export default connect(mapStateToProps, { register_business })(BusinessRegister);
+export default connect(mapStateToProps, { login_business })(BusinessLogin);

@@ -53,7 +53,7 @@ export const register_business = ({username, email, password}) => async dispatch
     }
 }
 // LOGIN, Business
-export const login_business = (email, password) => async dispatch => {
+export const login_business = ({email, password}) => async dispatch => {
     const config = {
         headers: {
             'Content-Type': 'application/json'

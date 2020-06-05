@@ -24,8 +24,24 @@ import ReservedCard from '../../public/cards/SectionCard';
 import ItemDetails from '../../public/details/ItemDetails';
 import Form from '../../public/form/Form';
 
+// Utils
+const jwtDecode = require('jwt-decode');
 
-const Landing = props => {
+
+const Landing = ({isAuthenticated}) => {
+
+    if(isAuthenticated && localStorage.token){
+        const decoded = jwtDecode(localStorage.token);
+        if(decoded.user.role === 0) {
+            return <Redirect to="/admin" />
+        } else if(decoded.user.role === 1) {
+            return <Redirect to="/business/profile" />
+        } else if (decoded.user.role === 2) {
+            return <Redirect to="/user/profile" />
+        }
+    }
+
+
     return (
         <Fragment>
 
@@ -105,7 +121,11 @@ const Landing = props => {
 };
 
 Landing.propTypes = {
-    
+    isAuthenticated: PropTypes.bool
 };
 
-export default Landing;
+const mapStateToProps = (state) => ({
+    isAuthenticated: state.auth.isAuthenticated
+})
+
+export default connect(mapStateToProps, {})(Landing);

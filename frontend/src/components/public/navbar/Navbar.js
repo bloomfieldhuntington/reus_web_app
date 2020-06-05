@@ -9,7 +9,19 @@ import reus_logo from '../../../images/reus_logo.png';
 import search from '../../../images/Search.png';
 import Shoppingcart from '../../../images/Shoppingcart.png'
 
-const Navbar = props => {
+// Utils
+const jwtDecode = require('jwt-decode');
+
+const Navbar = ({auth: {isAuthenticated}}) => {
+    
+    var optionLink = "Register";
+    if(isAuthenticated && localStorage.token){
+        const decoded = jwtDecode(localStorage.token);
+        if(decoded.user.role === 1) {
+            optionLink = "Add Item"
+        }
+    }
+
     return (
         <Fragment>
             <header className="header">
@@ -26,7 +38,7 @@ const Navbar = props => {
                 <input type="text" placeholder="Søk etter plagg eller brukere" className="navbar-searchfield-input"></input>
             </div>
 
-            <Link to="/register" className="navbar-button">Registrer</Link>
+            <Link to="/business/register" className="navbar-button">{optionLink}</Link>
             <img src={Shoppingcart} alt="icon" className="navbar-icon"></img>
 
         </div>
@@ -38,7 +50,11 @@ const Navbar = props => {
 };
 
 Navbar.propTypes = {
-    
+    auth: PropTypes.object.isRequired
 };
 
-export default Navbar;
+const mapStateToProps = (state) => ({
+    auth: state.auth
+})
+
+export default connect(mapStateToProps, {})(Navbar);

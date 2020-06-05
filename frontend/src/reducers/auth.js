@@ -1,6 +1,8 @@
 import {
     REGISTER_SUCCESS_BUSINESS,
     REGISTER_FAILED_BUSINESS,
+    LOGIN_SUCCESS_BUSINESS,
+    LOGIN_FAILED_BUSINESS,
     USERLOADED_SUCCESS_BUSINESS,
     LOGOUT_SUCCESS_BUSINESS,
     USERLOADED_FAILED_BUSINESS,
@@ -18,6 +20,7 @@ export default function(state = initialState, action) {
 
     switch (type) {
         case REGISTER_SUCCESS_BUSINESS:
+        case LOGIN_SUCCESS_BUSINESS:
         localStorage.setItem('token', payload.token)
         return {
             ...state,
@@ -26,6 +29,7 @@ export default function(state = initialState, action) {
             loading: false
         }
         case REGISTER_FAILED_BUSINESS:
+        case LOGIN_FAILED_BUSINESS:
         localStorage.removeItem('token')
         return {
             token: null,
