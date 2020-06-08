@@ -1,5 +1,12 @@
 const express = require('express');
 const { check, validationResult } = require('express-validator');
+const mongoose = require('mongoose');
+const crypto = require('crypto');
+const multer = require('multer');
+const GridFsStorage = require('multer-gridfs-storage');
+const Grid = require('gridfs-stream');
+const path = require('path');
+const config = require('../../config/keys');
 // Middleware
 const admin_middlware = require('../../middleware/admin_middleware');
 const business_middlware = require('../../middleware/business_middleware');
@@ -9,6 +16,35 @@ const Item = require('../../models/Item');
 const User = require('../../models/User');
 
 const router = express.Router();
+
+// Upload setup
+const connect = mongoose.createConnection(config.MONGODB_URI);
+// stream init
+var gfs;
+connect.once('open', (req, res) => {
+    gfs = Grid(connect.db, mongoose.mongo);
+    gfs.collection('uploadedImages')
+})
+// Create Storage
+const storage = new GridFsStorage({
+    url: config.MONGODB_URI,
+    file: (req, file) => {
+        return new Promise( (resolve, reject) => {
+            crypto.randomBytes(16, (err, buf) => {
+                if (err) {
+                    return reject(err);
+                }
+                const filename = buf.toString('hex') + path.extname(file.originalname);
+                const fileInfo = {
+                    filename: filename,
+                    bucketName: 'uploads'
+                };
+                resolve(fileInfo)
+            })
+        })
+    }
+})
+const upload = multer({ storage });
 
 // MARK:- BUSINESS
 
@@ -41,7 +77,8 @@ router.post('/create', [business_middlware, [
         category,
         segment,
         price,
-        tags
+        tags,
+        productImages
     } = req.body;
     const itemFields = {}
     itemFields.itemOwner = req.user.id;

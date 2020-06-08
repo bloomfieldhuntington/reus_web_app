@@ -16,6 +16,7 @@ import Category from './components/beta/category/Catagory';
 import BusinessRegister from './components/beta/register/business/auth/BusinessRegister';
 import BusinessLogin from './components/beta/register/business/auth/BusinessLogin';
 import BusinessProfile from './components/beta/profiles/business/BusinessProfile';
+import CreateItem from './components/beta/register/business/auth/CreateItem';
 
 
 // Utils
@@ -50,6 +51,7 @@ const App = () => {
           <Route exact path="/category" component={Category} />
           {/* PRIVATE ROUTES */}
           <PrivateRoute exact path="/business/profile" component={BusinessProfile} />
+          <PrivateRoute exact path="/business/create_item" component={CreateItem} />
         </Switch>
       </Router>
     </Provider>

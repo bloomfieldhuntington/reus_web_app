@@ -38,7 +38,7 @@ const Navbar = ({auth: {isAuthenticated}}) => {
                 <input type="text" placeholder="Søk etter plagg eller brukere" className="navbar-searchfield-input"></input>
             </div>
 
-            <Link to="/business/register" className="navbar-button">{optionLink}</Link>
+            <Link to={(isAuthenticated && localStorage.token) ? "/business/create_item" : "/business/register"} className="navbar-button">{optionLink}</Link>
             <img src={Shoppingcart} alt="icon" className="navbar-icon"></img>
 
         </div>
