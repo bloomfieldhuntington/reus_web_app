@@ -17,7 +17,7 @@ import Footer from '../../../../public/footer/Footer';
 import { create_item } from '../../../../../actions/item';
 
 
-const CreateItem = ({ create_item, isAuthenticated }) => {
+const CreateItem = ({ create_item, isAuthenticated, history }) => {
 
     // Register Form
 const [formData, setFormData] = useState({
@@ -49,6 +49,7 @@ const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value
 const onSubmit = async (e) => {
     e.preventDefault();
     create_item(formData);
+    history.push('/business/profile');
 }
 
 // Redirects to dash if auth
