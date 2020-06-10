@@ -4,8 +4,15 @@ import {
     LOGIN_SUCCESS_BUSINESS,
     LOGIN_FAILED_BUSINESS,
     USERLOADED_SUCCESS_BUSINESS,
-    LOGOUT_SUCCESS_BUSINESS,
     USERLOADED_FAILED_BUSINESS,
+    LOGOUT_SUCCESS_BUSINESS,
+    REGISTER_SUCCESS_USER,
+    REGISTER_FAILED_USER,
+    LOGIN_SUCCESS_USER,
+    LOGIN_FAILED_USER,
+    USERLOADED_SUCCESS_USER,
+    USERLOADED_FAILED_USER,
+    LOGOUT_SUCCESS_USER
 } from '../actions/types';
 
 const initialState = {
@@ -20,7 +27,9 @@ export default function(state = initialState, action) {
 
     switch (type) {
         case REGISTER_SUCCESS_BUSINESS:
+        case REGISTER_SUCCESS_USER:
         case LOGIN_SUCCESS_BUSINESS:
+        case LOGIN_SUCCESS_USER:
         localStorage.setItem('token', payload.token)
         return {
             ...state,
@@ -29,7 +38,9 @@ export default function(state = initialState, action) {
             loading: false
         }
         case REGISTER_FAILED_BUSINESS:
+        case REGISTER_FAILED_USER:
         case LOGIN_FAILED_BUSINESS:
+        case LOGIN_FAILED_USER:
         localStorage.removeItem('token')
         return {
             token: null,
@@ -37,6 +48,7 @@ export default function(state = initialState, action) {
             loading: false
         }
         case USERLOADED_SUCCESS_BUSINESS:
+        case USERLOADED_SUCCESS_USER:
             return {
                 ...state,
                 isAuthenticated: true,
@@ -44,7 +56,9 @@ export default function(state = initialState, action) {
                 user: payload
             }
         case LOGOUT_SUCCESS_BUSINESS:
+        case LOGOUT_SUCCESS_USER:
         case USERLOADED_FAILED_BUSINESS:
+        case USERLOADED_FAILED_USER:
             return {
                 ...state,
                 token: localStorage.clear(),
@@ -53,7 +67,6 @@ export default function(state = initialState, action) {
                 user: null
             }
 
-    
         default:
             return state;
     }

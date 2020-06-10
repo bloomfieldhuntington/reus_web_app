@@ -3,6 +3,7 @@ const common = {
     navbar: {},
     footer: {},
     banner: {},
+    sidebar: {}
 }
 const public = {
     landing: {},
@@ -14,10 +15,6 @@ const public = {
     register: {}
 }
 const private = {
-    landing: {},
-    shop: {},
-    categories: {},
-    productDetails: {},
     profile: {},
     createItem: {}
 }

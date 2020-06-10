@@ -89,6 +89,8 @@ router.post('/login', [
         let user = await User.findOne({ email });
         if (!user) {
             return res.status(400).json({ errors: [{msg: 'Invalid username or password'}]});
+        } else if (user.role !== 0) {
+            return res.status(400).json({ errors: [{msg: 'I think you are a Business user?'}]});
         }
         // Compare input password with db password
         const isMatch = await bcrypt.compare(password, user.password);

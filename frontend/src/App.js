@@ -7,16 +7,18 @@ import PrivateRoute from './components/utils/PrivateRoute';
 import { Provider } from 'react-redux';
 import store from './store';
 import { load_user_business } from './actions/auth_business';
+import { load_user } from './actions/auth_user';
 
 // MARK:- COMPONENTS
-// public
-import Landing from './components/beta/landing/Landing';
-import Category from './components/beta/category/Catagory';
-// business
-import BusinessRegister from './components/beta/register/business/auth/BusinessRegister';
-import BusinessLogin from './components/beta/register/business/auth/BusinessLogin';
-import BusinessProfile from './components/beta/profiles/business/BusinessProfile';
-import CreateItem from './components/beta/register/business/auth/CreateItem';
+// PUBLIC
+import Landing from './components/public/Landing';
+// User
+import Register from './components/public/Register';
+import Login from './components/public/Login';
+// Business
+import RegisterBusiness from './components/public/RegisterBusiness';
+import LoginBusiness from './components/public/LoginBusiness';
+import ProfileBusiness from './components/private/ProfileBusiness';
 
 
 // Utils
@@ -28,8 +30,11 @@ var loadUserAfterRoleCheck = () => {};
 if (localStorage.token) {
   const decoded = jwtDecode(localStorage.token);
   const accesscontrol = decoded.user.role;
-  if (accesscontrol === 1) {
+  if (accesscontrol === 0) {
+    loadUserAfterRoleCheck = load_user();
+  } else if (accesscontrol === 1) {
     loadUserAfterRoleCheck = load_user_business();
+    
   }
 }
 
@@ -45,13 +50,14 @@ const App = () => {
         <Switch>
           {/* PUBLIC ROUTES */}
           <Route exact path="/" component={Landing} />
-          <Route exact path="/business/register" component={BusinessRegister} />
-          <Route exact path="/business/login" component={BusinessLogin} />
-          
-          <Route exact path="/category" component={Category} />
+          <Route exact path="/register" component={Register} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/business/register" component={RegisterBusiness} />
+          <Route exact path="/business/login" component={LoginBusiness} />
           {/* PRIVATE ROUTES */}
-          <PrivateRoute exact path="/business/profile" component={BusinessProfile} />
-          <PrivateRoute exact path="/business/create_item" component={CreateItem} />
+          <PrivateRoute exact path="/business/profile" component={ProfileBusiness} />
+
+          
         </Switch>
       </Router>
     </Provider>
