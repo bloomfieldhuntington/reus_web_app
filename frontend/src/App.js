@@ -10,11 +10,11 @@ import { load_user_business } from './actions/auth_business';
 import { load_user } from './actions/auth_user';
 
 // MARK:- COMPONENTS
-// PUBLIC
 import Landing from './components/public/Landing';
 // User
 import Register from './components/public/Register';
 import Login from './components/public/Login';
+import Profile from './components/private/Profile';
 // Business
 import RegisterBusiness from './components/public/RegisterBusiness';
 import LoginBusiness from './components/public/LoginBusiness';
@@ -56,6 +56,7 @@ const App = () => {
           <Route exact path="/business/login" component={LoginBusiness} />
           {/* PRIVATE ROUTES */}
           <PrivateRoute exact path="/business/profile" component={ProfileBusiness} />
+          <PrivateRoute exact path="/profile" component={Profile} />
 
           
         </Switch>

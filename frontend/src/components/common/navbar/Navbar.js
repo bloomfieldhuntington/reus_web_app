@@ -12,7 +12,7 @@ import Shoppingcart from '../../../images/icons_large/cart.png'
 // Utils
 const jwtDecode = require('jwt-decode');
 
-const Navbar = ({auth: {isAuthenticated}}) => {
+const Navbar = ({auth: { user, isAuthenticated}}) => {
     
     var optionLink = "Register";
     if(isAuthenticated && localStorage.token){
@@ -20,6 +20,17 @@ const Navbar = ({auth: {isAuthenticated}}) => {
         if(decoded.user.role === 1) {
             optionLink = "Add Item"
         }
+    }
+
+    function OptionBtn() {
+        if (user) {
+            if (user.role === 0) {
+                return <Link to="/shop" className="navbar-button">Shop</Link>
+            } else if (user.role === 1) {
+                return <Link to="/add/product" className="navbar-button">Add Product</Link>
+            }
+        }
+        return <Link to="/register" className="navbar-button">Register</Link>
     }
 
     return (
@@ -38,7 +49,8 @@ const Navbar = ({auth: {isAuthenticated}}) => {
                 <input type="text" placeholder="Søk etter plagg eller brukere" className="navbar-searchfield-input"></input>
             </div>
 
-            <Link to={(isAuthenticated && localStorage.token) ? "/business/create_item" : "/register"} className="navbar-button">{optionLink}</Link>
+            {/* <Link to={(isAuthenticated && localStorage.token) ? "/business/create_item" : "/register"} className="navbar-button">{optionLink}</Link> */}
+            <OptionBtn />
             <img src={Shoppingcart} alt="icon" className="navbar-icon"></img>
 
         </div>

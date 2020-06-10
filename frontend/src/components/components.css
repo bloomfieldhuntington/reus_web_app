@@ -102,15 +102,23 @@ body {
 }
 .sidebar-column-item {
     display: flex;
+    cursor: pointer;
 }
 .sidebar-column-item-profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #999999;
     height: 30px;
     width: 30px;
     border-radius: 50%;
+    overflow: hidden;
 }
 .sidebar-column-icon {
     height: 24px;
+}
+.sidebar-column-icon-img {
+    height: 30px;
 }
 
 .main {
