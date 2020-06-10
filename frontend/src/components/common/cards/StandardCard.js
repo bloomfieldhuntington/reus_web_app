@@ -1,26 +1,43 @@
-import React, { PropTypes, Fragment } from 'react';
-
+import React, { Fragment } from 'react';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types'
 
 import shopBrands1 from '../../../dummyImages/shopBrands1.png';
 
-const SectionCard = props => {
+const SectionCard = ({ item: {_id, title, category, price}, history }) => {
+
+    const goToItem = () => {
+        var id = "";
+        if (_id) id = _id;
+        try {
+            history.push(`/details/${id}`)
+        } catch (error) {
+            
+        }
+    }
+
     return (
         <Fragment>
-            <div className="section-card">
+            <div className="section-card" onClick={goToItem}>
                     <div className="section-card-image-container">
                         <img src={shopBrands1} alt="Veske" className="section-card-image"></img>
                     </div>
                     
-                    <div className="section-card-title">Yves Saint Laurent</div>
-                    <div className="section-card-category">Veske</div>
-                    <div className="section-card-price">Price</div>
+    <div className="section-card-title">{(title) ? title : "Loading"}</div>
+                    <div className="section-card-category">{(category) ? category : "Loading..."}</div>
+                    <div className="section-card-price">{(price) ? price : "Loading"}</div>
                 </div>
         </Fragment>
     );
 };
 
 SectionCard.propTypes = {
-    
+    item: PropTypes.object.isRequired
 };
 
-export default SectionCard;
+const mapStateToProps = (state) => ({
+    item: state.item
+})
+
+export default connect(null, {})(withRouter(SectionCard));

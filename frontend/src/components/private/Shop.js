@@ -1,10 +1,9 @@
 // MARK:- IMPORTS
-import React, { Fragment } from 'react';
-import { Rediect, Link, Redirect } from 'react-router-dom';
+import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 // actions
-
+import { get_all_items_user } from '../../actions/item';
 // css
 import '../components.css'
 // components
@@ -16,20 +15,13 @@ import Showcase from '../common/showcase/Showcase';
 import StandardCard from '../common/cards/StandardCard';
 import SectionCard from '../common/cards/SectionCard';
 // Images
-// utils
-const jwtDecoded = require('jwt-decode');
 
-const Landing = ({isAuthenticated, item: {items}}) => {
+const Shop = ({item: {items}, get_all_items_user}) => {
+    useEffect(() => {
+        get_all_items_user();
+    }, [get_all_items_user])
 
-    if (isAuthenticated && localStorage.token) {
-        const decoded = jwtDecoded(localStorage.token);
-        if (decoded.user.role === 0) {
-            return <Redirect to="/shop" />
-        } else if (decoded.user.role === 1) {
-            return <Redirect to="/business/profile" />
-        }
-    }
-
+    
 
     return (
 <Fragment>
@@ -40,8 +32,7 @@ const Landing = ({isAuthenticated, item: {items}}) => {
 
         <main className="main">
 
-            {/* SHOWCASE */}
-            <Showcase />
+            
 
             <div className="contentbox">
 
@@ -71,7 +62,7 @@ const Landing = ({isAuthenticated, item: {items}}) => {
 
             <div className="section-content-container">
 
-                {items.slice(0, 4).map((item) => (
+                {items.slice(0, 16).map((item) => (
                     <StandardCard key={item._id} item={item} />
                 ))}
 
@@ -93,7 +84,7 @@ const Landing = ({isAuthenticated, item: {items}}) => {
 
             <div className="section-content-container">
 
-            {items.slice(0, 4).map((item) => (
+            {items.slice(16, 32).map((item) => (
                     <StandardCard key={item._id} item={item} />
                 ))}
 
@@ -121,14 +112,13 @@ const Landing = ({isAuthenticated, item: {items}}) => {
     );
 };
 
-Landing.propTypes = {
-    isAuthenticated: PropTypes.bool,
-    item: PropTypes.object.isRequired
+Shop.propTypes = {
+    item: PropTypes.object.isRequired,
+    get_all_items_user: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-    item: state.item,
-    isAuthenticated: state.auth.isAuthenticated
+    item: state.item
 })
 
-export default connect(mapStateToProps, {})(Landing);
+export default connect(mapStateToProps, { get_all_items_user })(Shop);

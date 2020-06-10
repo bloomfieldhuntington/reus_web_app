@@ -15,6 +15,7 @@ import Landing from './components/public/Landing';
 import Register from './components/public/Register';
 import Login from './components/public/Login';
 import Profile from './components/private/Profile';
+import Shop from './components/private/Shop';
 // Business
 import RegisterBusiness from './components/public/RegisterBusiness';
 import LoginBusiness from './components/public/LoginBusiness';
@@ -57,6 +58,7 @@ const App = () => {
           {/* PRIVATE ROUTES */}
           <PrivateRoute exact path="/business/profile" component={ProfileBusiness} />
           <PrivateRoute exact path="/profile" component={Profile} />
+          <PrivateRoute exact path="/shop" component={Shop} />
 
           
         </Switch>

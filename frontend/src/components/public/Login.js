@@ -97,7 +97,7 @@ if (isAuthenticated === true) {
                 
                 <div className="button-options-container">
                 <Link to="/business/register" className="details-button-light" >Business Register</Link>
-                <Link to="/business/register" className="details-button-light" >Business Login</Link>
+                <Link to="/business/login" className="details-button-light" >Business Login</Link>
 
                 </div>
 

@@ -1,17 +1,22 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 // components
 import Navbar from '../common/navbar/Navbar';
 import Sidebar from '../common/sidebar/Sidebar'
 import Footer from '../common/footer/Footer';
 import ReservedCard from '../common/cards/ReservedCard';
 import StandardCard from '../common/cards/StandardCard';
+// actions
+import { get_all_items_user } from '../../actions/item';
 // images
 import reserve from '../../images/icons_large/reserve.png';
 import heart from '../../images/icons_large/heart.png';
-import { connect } from 'react-redux';
 
-const Profile = ({ auth: {user}}) => {
+const Profile = ({ auth: {user}, item, get_all_items_user }) => {
+    useEffect(() => {
+        get_all_items_user();
+    }, [get_all_items_user])
 
     var [status, setStatus] = useState(0)
 
@@ -79,11 +84,13 @@ const Profile = ({ auth: {user}}) => {
 };
 
 Profile.propTypes = {
-    auth: PropTypes.object.isRequired
+    auth: PropTypes.object.isRequired,
+    get_all_items_user: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => ({
-    auth: state.auth
+    auth: state.auth,
+    item: state.item
 })
 
-export default connect(mapStateToProps, {})(Profile);
+export default connect(mapStateToProps, {get_all_items_user})(Profile);

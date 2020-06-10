@@ -247,4 +247,40 @@ router.post('/add/location/:item_id', [business_middlware, [
     }
 });
 
+// ROUTE: api/item/user/get/all
+// DESCRIPTION: GET ALL ITEMS USER
+// ACCESS: PRIVATE
+// TYPE: GET
+router.get('/user/get/all', user_middlware, async (req, res) => {
+    try {
+        const items = await Item.find();
+        if (!items) {
+            return res.status(400).json({msg: 'No items found'});
+        } else {
+            res.json(items);
+        }
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).json({msg: 'Server Error'});
+    }
+})
+
+// ROUTE: api/item/user/get/:item_id
+// DESCRIPTION: GET ONE ITEM BY ID
+// ACCESS: PRIVATE
+// TYPE: POST
+router.get('/user/get/:item_id', user_middlware, async (req, res) => {
+    try {
+        const item = await Item.findOne({ _id: req.params.item_id });
+        if (!item) {
+            return res.status(404).json({msg: 'No post found'});
+        } else {
+            res.json(item);
+        }
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).json({msg: 'Server Error'});
+    }
+})
+
 module.exports = router;

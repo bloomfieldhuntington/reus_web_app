@@ -207,10 +207,10 @@ body {
     font-weight: 700;
 }
 .section-content-container {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(169px, 169px));
     justify-content: space-between;
-    align-items: center;
+    width: 100%;
 }
 .section-content-container-col {
     display: flex;
@@ -448,10 +448,10 @@ body {
 .profile-items-container {
 }
 .profile-items-favourites-container {
-    display: block;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(169px, 169px));
     justify-content: space-between;
-    align-items: center;
+    width: 100%;
 }
 .profile-items-reserved-container {
     margin: 20px 0px;
@@ -498,6 +498,7 @@ body {
     height: auto;
     background-color: transparent;
     margin: 20px 0px;
+    cursor: pointer;
 }
 .section-card-image-container {
     display: flex;

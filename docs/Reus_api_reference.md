@@ -109,10 +109,10 @@ POST /api/item/add/location/:item_id
 #### Action: Remove locations, business TODO
 POST /api/item/remove/location/:item_id
 
-#### Action: Get all items, User TODO
-POST /api/item/user/all
+#### Action: Get all items, User OK
+POST /api/item/user/get/all
 
-#### Action: Get One specific Item, User TODO
+#### Action: Get One specific Item, User OK
 POST /api/item/user/get/:item_id
 
 #### Action: Set productViews, User TODO
