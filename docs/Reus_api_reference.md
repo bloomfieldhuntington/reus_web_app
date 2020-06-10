@@ -48,6 +48,8 @@ POST /api/user/actions/unfollow/:user_id
 #### Action: Set isPublic, User OK
 POST /api/user/actions/set/public_profile
 
+GET ALL USERS TODO (not private)
+
 ## ROUTES for Business
 
 #### Action: Create User Object, Business OK

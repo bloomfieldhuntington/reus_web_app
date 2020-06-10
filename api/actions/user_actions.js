@@ -160,7 +160,7 @@ router.post('/add/reserved/:item_id', user_middlware, async (req, res) => {
     }
 });
 
-// ROUTE: api/user/actions/add/reserved/:item_id
+// ROUTE: api/user/actions/remove/reserved/:item_id
 // DESCRIPTION: Add Item to reserved items
 // ACCESS: PRIVATE
 // TYPE: POST
