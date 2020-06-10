@@ -182,7 +182,7 @@ export const get_one_item_user = (item_id) => async dispatch => {
 // GET FAVOURITES, User
 export const get_favourites = () => async dispatch => {
     try {
-        const response = await axios.get('/api/user/actions/get/favorites');
+        const response = await axios.get('/api/user/actions/get/favourites');
         dispatch({type: GET_FAVOURITES_SUCCESS_USER, payload: response.data});
     } catch (error) {
         const errors = error.response.data.errors;

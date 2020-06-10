@@ -11,7 +11,7 @@ const SectionCard = ({ item: {_id, title, category, price}, history }) => {
         var id = "";
         if (_id) id = _id;
         try {
-            history.push(`/details/${id}`)
+            history.push(`/shop/${id}`)
         } catch (error) {
             
         }

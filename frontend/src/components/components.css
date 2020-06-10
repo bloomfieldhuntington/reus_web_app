@@ -236,6 +236,7 @@ body {
     justify-content: center;
     height: 300px;
     width: 350px;
+    background-color: #dddddd;
     overflow: hidden;
 }
 .section-details-main-image {
@@ -255,6 +256,7 @@ body {
     justify-content: center;
     height: 80px;
     width: 80px;
+    background-color: #dddddd;
     overflow: hidden;
 }
 .section-details-image-small {
@@ -284,19 +286,23 @@ body {
     align-items: center;
     justify-content: center;
     margin: 0px;
+    cursor: pointer;
 }
 .details-title-icon {
     display: flex;
     height: 25px;
+    margin-left: 10px;
 }
 
 .details-text {
     font-size: 12px;
     text-transform: uppercase;
+    line-height: 20px;
 }
 .details-price {
     font-size: 14px;
     font-weight: 700;
+    margin: 10px 0px;
 }
 .details-button {
     display: flex;
@@ -334,6 +340,7 @@ body {
     background-color: #efefef;
     padding: 10px;
     border-radius: 5px;
+    margin: 10px 0px;
 }
 .location-item {
     font-size: 14px;
@@ -461,6 +468,7 @@ body {
     display: flex;
     flex-direction: row;
     background-color: #efefef;
+    margin-bottom: 15px;
 }
 .reserved-card-image-container {
     display: flex;

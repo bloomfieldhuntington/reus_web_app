@@ -7,18 +7,21 @@ import Sidebar from '../common/sidebar/Sidebar'
 import Footer from '../common/footer/Footer';
 import ReservedCard from '../common/cards/ReservedCard';
 import StandardCard from '../common/cards/StandardCard';
+import SectionCard from '../common/cards/SectionCard';
 // actions
-import { get_all_items_user } from '../../actions/item';
+import { get_all_items_user, get_favourites, get_reserved } from '../../actions/item';
 // images
 import reserve from '../../images/icons_large/reserve.png';
 import heart from '../../images/icons_large/heart.png';
 
-const Profile = ({ auth: {user}, item, get_all_items_user }) => {
+const Profile = ({ auth: {user}, item: { favouriteItems, reservedItems }, get_all_items_user, get_favourites, get_reserved }) => {
     useEffect(() => {
         get_all_items_user();
-    }, [get_all_items_user])
+        get_favourites();
+        get_reserved();
+    }, [get_all_items_user, get_favourites, get_reserved])
 
-    var [status, setStatus] = useState(0)
+    var [status, setStatus] = useState(1)
 
 
     return (
@@ -57,16 +60,28 @@ const Profile = ({ auth: {user}, item, get_all_items_user }) => {
                         <img src={reserve} alt="Img" className="profile-menu-item-icon"></img>
                         <div className="profile-menu-item-text">Reservations</div>
                     </div>
+                    <div className="profile-menu-item-container" onClick={() => setStatus(status = 2)}>
+                        <img src={reserve} alt="Img" className="profile-menu-item-icon"></img>
+                        <div className="profile-menu-item-text">Rented</div>
+                    </div>
                 </div>
 
                 <div className="profile-items-container">
 
                     {(status === 1) ? <div className="profile-items-favourites-container" id="favouritesContainer">
-                        <StandardCard />
+                        {favouriteItems.map((item) => (
+                            <StandardCard key={item._id} item={item} />
+                        ))}
                         </div> : <Fragment></Fragment>}
 
                     {(status === 0) ? <div className="profile-items-reserved-container" id="reservedContainer">
-                        <ReservedCard />
+                        {reservedItems.map((item, index) => (
+                            <ReservedCard key={index} />
+                        ))}
+                    </div> : <Fragment></Fragment>}
+
+                    {(status === 2) ? <div className="profile-items-reserved-container" id="rentedContainer">
+                        <SectionCard />
                     </div> : <Fragment></Fragment>}
 
                 </div>
@@ -85,7 +100,9 @@ const Profile = ({ auth: {user}, item, get_all_items_user }) => {
 
 Profile.propTypes = {
     auth: PropTypes.object.isRequired,
-    get_all_items_user: PropTypes.func.isRequired
+    get_all_items_user: PropTypes.func.isRequired,
+    get_favourites: PropTypes.func.isRequired,
+    get_reserved: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => ({
@@ -93,4 +110,4 @@ const mapStateToProps = (state) => ({
     item: state.item
 })
 
-export default connect(mapStateToProps, {get_all_items_user})(Profile);
+export default connect(mapStateToProps, {get_all_items_user, get_favourites, get_reserved})(Profile);
