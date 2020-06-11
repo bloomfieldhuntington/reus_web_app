@@ -21,6 +21,7 @@ import ItemDetails from './components/private/ItemDetails';
 import RegisterBusiness from './components/public/RegisterBusiness';
 import LoginBusiness from './components/public/LoginBusiness';
 import ProfileBusiness from './components/private/ProfileBusiness';
+import ItemDetailsBusiness from './components/private/ItemDetailsBusiness';
 
 
 // Utils
@@ -61,6 +62,7 @@ const App = () => {
           <PrivateRoute exact path="/profile" component={Profile} />
           <PrivateRoute exact path="/shop" component={Shop} />
           <PrivateRoute exact path="/shop/:id" component={ItemDetails} />
+          <PrivateRoute exact path="/business/shop/:id" component={ItemDetailsBusiness} />
 
           
         </Switch>

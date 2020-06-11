@@ -16,6 +16,8 @@ import Showcase from '../common/showcase/Showcase';
 import StandardCard from '../common/cards/StandardCard';
 import SectionCard from '../common/cards/SectionCard';
 // Images
+import AccessoriesDame from '../../dummyImages/AccessoriesDame.png';
+import AccessoriesHerre from '../../dummyImages/AccessoriesHerre.png';
 // utils
 const jwtDecoded = require('jwt-decode');
 
@@ -60,7 +62,7 @@ const Landing = ({isAuthenticated, item: {items}}) => {
         {/* BANNER */}
         <div className="section-banner">
             <div className="section-banner-image-container">
-                <img src="" alt="BANNER" className="section-banner-image"></img>
+                <img src={AccessoriesDame} alt="BANNER" className="section-banner-image"></img>
             </div>
         </div>
 
@@ -82,7 +84,7 @@ const Landing = ({isAuthenticated, item: {items}}) => {
         {/* BANNER */}
         <div className="section-banner">
             <div className="section-banner-image-container">
-                <img src="" alt="BANNER" className="section-banner-image"></img>
+                <img src={AccessoriesHerre} alt="BANNER" className="section-banner-image"></img>
             </div>
         </div>
 

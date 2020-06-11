@@ -146,6 +146,11 @@ router.post('/add/reserved/:item_id', user_middlware, async (req, res) => {
             if (!item) {
                 return res.status(404).json({msg: "No item found"});
             } else {
+                // add item to productOwner array test
+                const itemOwner = await User.findOne({_id: item.itemOwner});
+                if (!itemOwner) return res.status(404).json({msg: 'No Item owner found'})
+                itemOwner.itemsRentedOut.push(item);
+                itemOwner.save();
                 user.reservedItems.push({ item: item._id });
                 user.save();
                 item.isAvailable = false;

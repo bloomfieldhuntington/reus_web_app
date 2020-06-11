@@ -75,8 +75,8 @@ const Profile = ({ auth: {user}, item: { favouriteItems, reservedItems }, get_al
                         </div> : <Fragment></Fragment>}
 
                     {(status === 0) ? <div className="profile-items-reserved-container" id="reservedContainer">
-                        {reservedItems.map((item, index) => (
-                            <ReservedCard key={index} />
+                        {reservedItems.map((item) => (
+                            <ReservedCard key={item._id} item={item} />
                         ))}
                     </div> : <Fragment></Fragment>}
 

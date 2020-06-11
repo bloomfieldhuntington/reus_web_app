@@ -6,6 +6,7 @@ const multer = require('multer');
 const GridFsStorage = require('multer-gridfs-storage');
 const Grid = require('gridfs-stream');
 const path = require('path');
+const bodyParser = require('body-parser');
 const config = require('../../config/keys');
 // Middleware
 const admin_middlware = require('../../middleware/admin_middleware');
@@ -18,7 +19,7 @@ const User = require('../../models/User');
 const router = express.Router();
 
 // Upload setup
-const connect = mongoose.createConnection(config.MONGODB_URI);
+const connect = mongoose.createConnection(config.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true});
 // stream init
 var gfs;
 connect.once('open', (req, res) => {
@@ -45,6 +46,56 @@ const storage = new GridFsStorage({
     }
 })
 const upload = multer({ storage });
+
+// MARK:- BUSINESS, IMAGE UPLOADING
+
+// ROUTE: api/item/upload
+// DESCRIPTION: 
+// ACCESS: PRIVATE
+// TYPE: POST
+router.post('/upload', upload.single('file'), async (req, res) => {
+    const { item_id } = req.body;
+    try {
+        const item = await Item.findOne({ _id: item_id});
+        if (!item) {
+            return res.status(404).json({msg: 'No Item Found'});
+        } else {
+            item.productImages.push(req.file.filename);
+            item.save();
+        }   
+        res.json({ file: req.file });
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).json({msg: 'Server Error'});
+    }
+})
+// ROUTE: api/item/get/images/:item_id
+// DESCRIPTION: 
+// ACCESS: PRIVATE
+// TYPE: POST
+router.get('/get/images/:item_id', async (req, res) => {
+
+   try {
+       const item = await Item.findOne({ _id: req.params.item_id });
+       if (!item) return res.status(404).json({msg: 'No Files Available'});
+
+       const myArray = [];
+       item.productImages.map(filename => {
+           myArray.push(filename);
+       })
+       console.log(myArray[0])
+       
+       const imageTest = await gfs.files.find({});
+       console.log(imageTest);
+       
+
+   } catch (error) {
+        console.log(error.message);
+        res.status(500).json({msg: 'Server Error'});
+   }
+
+})
+
 
 // MARK:- BUSINESS
 

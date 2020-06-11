@@ -69,7 +69,9 @@ const ProfileBusiness = ({ auth: {user}, item: { itemsForRent, itemsRentedOut, l
                         </div> : <Fragment></Fragment>}
 
                     {(status === 1) ? <div className="profile-items-reserved-container" id="reservedContainer">
-                        <ReservedCard />
+                        {itemsRentedOut.map((item) => (
+                            <ReservedCard key={item._id} item={item} />
+                        ))}
                     </div> : <Fragment></Fragment>}
 
                 </div>

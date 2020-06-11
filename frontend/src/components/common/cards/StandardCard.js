@@ -5,17 +5,20 @@ import PropTypes from 'prop-types'
 
 import shopBrands1 from '../../../dummyImages/shopBrands1.png';
 
-const SectionCard = ({ item: {_id, title, category, price}, history }) => {
+const SectionCard = ({ item: {_id, title, category, price}, history, auth: { user } }) => {
 
     const goToItem = () => {
         var id = "";
         if (_id) id = _id;
         try {
-            history.push(`/shop/${id}`)
+            if (user.role === 0) history.push(`/shop/${id}`);
+            if (user.role === 1) history.push(`/business/shop/${id}`)
         } catch (error) {
             
         }
     }
+
+    
 
     return (
         <Fragment>
@@ -37,7 +40,7 @@ SectionCard.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-    item: state.item
+    auth: state.auth
 })
 
-export default connect(null, {})(withRouter(SectionCard));
+export default connect(mapStateToProps, {})(withRouter(SectionCard));

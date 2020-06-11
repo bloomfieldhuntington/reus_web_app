@@ -47,7 +47,7 @@ router.get('/get/items_rented_out', business_middlware, async (req, res) => {
         } else {
             var m_idArray = [];
             user.itemsRentedOut.forEach(item => {
-                m_idArray.push(item.item);
+                m_idArray.push(item);
             })
             const items_rented_out = await Item.find({ _id: {$in: m_idArray}});
             if (!items_rented_out) {
